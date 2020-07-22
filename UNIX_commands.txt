@@ -1,0 +1,288 @@
+Assignments:-
+
+List the contents of a directory and their attributes
+lsattr
+
+Long list the content with file, directory ownership, permissions,sizes, etc…
+ls -l
+
+Display the size of the file in human readable format
+ls -h -l
+
+Show all files and folders including hidden one
+ls -al
+
+list directories recursively
+ls -R
+
+Sort the files by size with largest at the top
+ls -alSh & ls -alSr (least at the top)
+
+Sort the files by last time modified displaying the newest first.
+ls -ltS
+
+Diplay the location of a program/command, where it is installed.
+whreis program or sudo find / -name ""
+
+Which command is used to switch directory from one to another
+cd 
+
+List all the environment variables set for the current shell environment
+printenv
+
+Did you notice something in the output of "env" command?
+same as printenv
+
+Which command is used to print the text or any variables value in the Console/Terminal?
+echo
+
+Print the value of the env variable "PATH" on the console
+echo $PATH
+
+Is linux a case-sensitive operating system?
+yes
+
+Is, "Ls" same as "ls"?
+No
+
+Display your currently logged in user
+who, whoami , echo $USER
+
+how do you change the currrently logged in user to another user?
+su 
+
+Which command is used to leave a shell environment that you are currently logged in to?
+exit
+
+How do you reboot the system?
+reboot
+
+How do you shutdown the system?
+shutdown
+
+Display all the major running processes in the system
+ps -a , ps -aux
+
+Understand the output of command used in above question of displaying processes, explain the meaning of each column and what data it displays?
+root – User name
+1 – process ID
+12:11 – Process start time
+/usr/sbin/chronyd – Actual process 
+
+Display the name of the system kernel
+uname-r ,hostnamectl | grep Kernel
+
+display the kernel release number
+uname-r
+display teh machine type of the current kernel
+hostnamectl | grep Machine
+
+Display the name of the operating system that the kernel is running on
+hostnamectl | grep Operating
+
+Display all info that uname command can show.
+Linux
+
+Display the name of directory that you are currently pointing to
+pwd 
+
+change the current directory to another directory that you have in your system.
+cd /demo /sample
+
+Go up one directory
+cd 
+
+Return to last directory
+cd /
+
+change the current directory to home(logged in user's) directory
+cd ~
+
+How to check all the command used from the prompt (Command History)
+history
+
+In which file the history of commands are stored in?
+cat ~/.bash_history
+
+How many lines of history does the system keep and from where you can change it?
+default HISTFILESIZE=1000, ~/.bashrc file add HISTFILESIZE=2000 ,source ~/.bashrc
+
+How can you modify bash's history behaviour
+vi ~/.bash_history
+
+Display all the commands entered so far, now, try to run a particular command from the history list without typing that command.
+
+NOTE:- TAB key is your friend when it comes to command completion and having long file and directory names autocompleted at the bash prompt for you. JUST BE LAZY AND USE TAB KEY FOR AUTO COMPLETION ;-)
+
+
+What are the different types of shell and where are they used and how do we use them?
+Bourne shell and c shell.
+
+What is the difference between login shell and non-login shell?
+If u open a shell and ask you to login (username & password) before it gives you a prompt, its login shell
+ex: .bash_profile
+If it doesn't then its non login shell
+ex: .bashrc
+
+How do we start login shell and non-login shell?
+using the switch user (su) command
+
+What happens when you start a login shell (which files are read and used and Why)?
+~/.bash_profile script gets executed behind the scenes every time this login shell is created.
+
+What happens when you start a non-login shell (Which files are read and used and Why)?
+~/.bashrc script gets executed behind the scenes every time this interactive shell is initialised
+
+What are Shell Configuration Files, why do we need it?
+/etc/profile - This is a "System wide" initialisation file that is executed during login. This file provides initial environment variables and initial "PATH" locations.
+/etc/bashrc	- This again is a "System Wide" initialisation file. This file is executed each time a Bash shell is opened by a user. Here you can define your default prompt and add alias information. Values in this file can be overridden by their local ~/.bashrc entry.
+~/.bash_profile	- If this file exists, it is executed automatically after /etc/profile during the login process. This file can be used by each user to add individual entries. The file however is only executed once at login and normally then runs the users .bashrc file.
+~/.bash_login - If the ".bash_profile" does not exist, then this file will be executed automatically at login.
+~/.profile - If the ".bash_profile" or ".bash_login" do not exist, then this file is executed automatically at login.
+~/.bashrc - This file contains individual specific configurations. This file is read at login and also each time a new Bash shell is started. Ideally, this is where you should place any aliases.
+~/.bash_logout- This file is executed automatically during logout.
+~/.inputrc - This file is used to customize key bindings/key strokes.
+
+Explain the Order of file usage from the system/user's home directory when user logs in to the System.
+/etc/profile - This is a "System wide" initialisation file that is executed during login. This file provides initial environment variables and initial "PATH" locations.
+/etc/bashrc	- This again is a "System Wide" initialisation file. This file is executed each time a Bash shell is opened by a user. Here you can define your default prompt and add alias information. Values in this file can be overridden by their local ~/.bashrc entry.
+~/.bash_profile	- If this file exists, it is executed automatically after /etc/profile during the login process. This file can be used by each user to add individual entries. The file however is only executed once at login and normally then runs the users .bashrc file.
+~/.bash_login - If the ".bash_profile" does not exist, then this file will be executed automatically at login.
+~/.profile - If the ".bash_profile" or ".bash_login" do not exist, then this file is executed automatically at login.
+~/.bashrc - This file contains individual specific configurations. This file is read at login and also each time a new Bash shell is started. Ideally, this is where you should place any aliases.
+~/.bash_logout- This file is executed automatically during logout.
+~/.inputrc - This file is used to customize key bindings/key strokes.
+
+What are Shell Variables, list major shell variables and what do they represent?
+A variable is a character string to which we assign a value. 
+A shell variable is a special variable that is set by the shell and is required by the shell in order to 
+function correctly.
+
+variable  description
+history   Sets the history
+HOME      Sets the path to the user's home directory. 
+LANG      Sets the locale. 
+MANPATH   Sets the hierarchies of man pages that are available. 
+PATH      Specifies, in order, the directories that the shell searches to find the program to run when the user 
+          types a command.
+
+ 
+How we see all our env variables?
+env
+
+How we see all env variables in alphabical order?
+ env | sort
+
+What Format does the env var and its values are stored?
+key=value pair
+
+How do you create your own varible?
+me=Dave(local)
+
+How do you start a new bash shell?
+nohup any.sh file
+EX:nohup java -jar abc-snapshot.jar & echo $!
+
+Difference between Local/Shell variables to Global Variable
+Global variables are declared outside any function, and they can be accessed (used) on any function in the program. Local variables are declared inside a function, 
+and can be used only inside that function.
+
+Making a variable accessible from other the shell in the system.
+declare it has global variable
+
+Show the real life use case of exporting a variable
+export PATH="/home/mysql"
+
+Convert the above script file into a command, The file should run with "myappp" instead of "myapp.sh"
+mv myappp.{.sh,''}
+nohup myapp & echo $!
+
+What is Globbing? Explain in depth with examples?
+File globbing is a feature provided by the UNIX/Linux shell to represent multiple filenames by using special 
+characters called wildcards with a single file name. A wildcard is essentially a symbol 
+which may be used to substitute for one or more characters.
+
+The bash shell provides three characters to use as wildcards:
+
+Asterisk (*) to represent 0 or more characters
+Question mark (?) to represent exactly one character
+Square brackets ([]) to represent and match for the character enclosed within the square brackets.
+
+Example 1: Using * expand all disk drives file names with /dev/sda as leading characters.
+ ls -l /dev/sda*
+lrwxrwxrwx 1 root root 4 Jul 22 06:16 /dev/sda -> xvda
+lrwxrwxrwx 1 root root 5 Jul 22 06:16 /dev/sda1 -> xvda1
+
+Example 2: Using ? disk drives file names with /dev/sda as leading characters not including file name /dev/sda itself
+ls -l /dev/sda?
+lrwxrwxrwx 1 root root 5 Jul 22 06:16 /dev/sda1 -> xvda1
+
+Example 3: Expand all file names in the current working directory.
+ls *
+demo.pem  demo.sh  text.tf
+commond-line:
+demo1.sh  output.tf  provider.tf  text.tf
+
+List all entries with extension ".sh"
+find ./ -type f \( -name "*.sh" \)
+
+List all entries with numbers in it.
+ls -l [0-9]*
+grep [[:digit:]] text.tf
+
+List all entries that starts with a character and ends with a number
+ls -l ^[a-Z]*
+
+List all entries that name length more than 5 characters
+
+What is Quoting? and Why do we need it?
+Quoting means just that, bracketing a string in quotes.
+
+Write few(minimum 3) unique examples that shows, how a particular problem is solved using Quoting.
+
+How do you find a particular files/directories based on a particular search criteria?
+HINT:- look for commands -> locate, find and whereis
+
+Write major difference between locate, find and whereis?
+locate - is used to scan the whole system quickly for somefiles.
+find - is what you use when you want to search by particular criteria and also manipulate files. 
+whereis - command simply returns the location of the executables, the man pages and the sources of a program
+
+How Globbing is different from locate, find and whereis?
+
+Explain the Linux File System.
+ A Linux file system is a structured collection of files on a disk drive or a partition.
+ A partition is a segment of memory and contains some specific data. In our machine, 
+ there can be various partitions of the memory. 
+ It stores the data on hard disks (HDD) or some equivalent storage type.
+ 
+Explain absolute and Relative Paths
+An absolute path is defined as specifying the location of a file or directory from the root directory(/).
+Relative path is defined as the path related to the present working directly(pwd).
+
+What are the different ways of creating a File in linux System? Write an example of each and the difference between them.
+Touch command - sudo touch demo.txt - this command will create an empty file
+Cat command - cat info.txt - this command will create an empty file
+Echo command - echo "This file has been created with echo command" > echo.txt
+Printf command - printf "This file has been created with printf command" > printf.txt
+vi text editor -vi vi.txt, creates a file, but you can't add any text before converting it to insert mode by typing i character.
+Nano text editor - nano vi.txt
+Vim text editor - vim text.txt
+
+In how many ways we can delete the files from linux system? write an example of each and teh difference between them.
+rm {file-name} - removes empty file
+rm [options] {file-name}
+rm -f -r {file-name} - forcefully remove
+rm -rf mydir - Remove all files and sub-directories from a directory.
+rm -i filename - ask confirmation before deleting the file
+
+where f - forcefully remove
+      r - recursively 
+
+Archiving files using linux command, write a command to archive set of files from linux commands.
+tar czvf demo.txt
+gzip and bzip
+
+Extract the archived files from the above step.
+tar -czvf demo.tar
+tar -zxvf tecmintbackup.tar.gz
